@@ -1,17 +1,19 @@
 <template>
   <section class="container">
-    <div>
-      <h1 class="title">
-        Spice's portfolio
-      </h1>
-      <h2 class="subtitle">
-        Thank you for coming !
-      </h2>
+    <div class="head-section">
+      <div class="title-container">
+        <h1 class="title">
+          Spice's portfolio
+        </h1>
+        <h2 class="subtitle">
+          Thank you for coming !
+        </h2>
+      </div>
       <ul class="home-list">
         <li><a href="#profile">Profile</a></li>
         <li><a href="#history">History</a></li>
         <li><a href="#works">Works</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Acount</a></li>
       </ul>
     </div>
     <div class="profile-section">
@@ -34,7 +36,7 @@
               <th>Name</th>
               <th>Age</th>
               <th>使用言語</th>
-              <th>フレームワーク</th>
+              <th>ライブラリ・フレームワーク</th>
             </tr>
           </thead>
           <tbody>
@@ -42,14 +44,14 @@
               <td>Yugo Ogura</td>
               <td>21</td>
               <td>javascript, node.js, PHP, HTML/CSS, SQL</td>
-              <td>Vue.js, Angular, Laravel, WordPress</td>
+              <td>Vue.js, Nuxt.js, Angular, express, Laravel, WordPress etc...</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
     <div class="profile-section">
-      <h2 id="history">履歴</h2>
+      <h2 id="history">開発履歴</h2>
       <div class="history-box">
         <div class="history-line"></div>
         <div class="history-detail-box">
@@ -65,16 +67,19 @@
     <div class="profile-section">
       <h2 id="works">作成物</h2>
       <div class="works-box">
-        <div class="works-detail">sample</div>
-        <div class="works-detail">sample</div>
-        <div class="works-detail">sample</div>
-        <div class="works-detail">sample</div>
+        <div class="works-detail work-detail-portfolio"></div>
+        <div class="works-detail work-detail-dockhack"></div>
+        <div class="works-detail work-detail-cancamp"></div>
+        <div class="works-detail">Admin Menu</div>
       </div>
     </div>
     <div class="profile-section">
-      <h2 id="contact">連絡</h2>
+      <h2 id="contact">アカウント</h2>
       <a href="https://twitter.com/rabspice?lang=ja" target="_blank">twitter</a>
+      <br>
       <a href="https://github.com/Spice-Z" target="_blank">GitHub</a>
+      <br>
+      <a href="https://qiita.com/spice" target="_blank">Qiita</a>
     </div>
   </section>
 </template>
@@ -91,6 +96,7 @@ export default {
 
 <style>
 .container {
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,18 +104,46 @@ export default {
   text-align: center;
 }
 
+.head-section {
+  width: 100%;
+  position: relative;
+}
+
+.title-container::before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
+  background: url("../assets/header-background.jpg");
+  background-size: cover;
+  filter: grayscale(80%) blur(3px);
+}
+
+.title-container {
+  z-index: 100;
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+
 .title {
   display: block;
   font-weight: 300;
   font-size: 70px;
-  color: #35495e;
+  color: #fdffec;
   letter-spacing: 1px;
 }
 
 .subtitle {
   font-weight: 300;
   font-size: 42px;
-  color: #526488;
+  color: #fdffec;
   word-spacing: 5px;
   padding-bottom: 15px;
 }
@@ -125,6 +159,7 @@ export default {
 
 .profile-section {
   margin-top: 20px;
+  padding: 0 30px 0 30px;
   width: 100%;
 }
 
@@ -142,7 +177,7 @@ export default {
 }
 
 .profile-sentences {
-  padding: 20px;
+  padding: 20px 0;
   text-align: left;
 }
 
@@ -208,10 +243,46 @@ export default {
 }
 
 .works-detail {
+  position: relative;
   border-radius: 10px;
-  margin-bottom: 10px;
-  width: 200px;
-  height: 200px;
-  background: #526488;
+  margin-bottom: 20px;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  line-height: 240px;
+}
+
+.works-detail::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px 3px rgba(0, 0, 0, 0.5);
+}
+
+.work-detail-portfolio::before {
+  background: url("../assets/portfolio.png");
+  background-size: cover;
+  background-position: center top;
+  filter: grayscale(10%);
+}
+
+.work-detail-dockhack::before {
+  background: url("../assets/dockhack.png");
+  background-size: cover;
+  background-position: center top;
+  filter: grayscale(20%);
+}
+
+.work-detail-cancamp::before {
+  background: url("../assets/cancamp.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(20%);
 }
 </style>
