@@ -67,10 +67,24 @@
     <div class="profile-section">
       <h2 id="works">作成物</h2>
       <div class="works-box">
-        <div class="works-detail work-detail-portfolio"></div>
-        <div class="works-detail work-detail-dockhack"></div>
-        <div class="works-detail work-detail-cancamp"></div>
-        <div class="works-detail">Admin Menu</div>
+        <div @click="openWorksOverlay" class="works-detail work-detail-portfolio"></div>
+        <div @click="openWorksOverlay" class="works-detail work-detail-dockhack"></div>
+        <div @click="openWorksOverlay" class="works-detail work-detail-cancamp"></div>
+        <div @click="openWorksOverlay" class="works-detail">Admin Menu</div>
+      </div>
+    </div>
+    <div v-if="isShowWorksOverlay" class="works-overlay">
+      <div class="works-overlay-detail">
+        <h2 class="works-overlay-detail-title">portfolio</h2>
+        <h3 class="works-overlay-detail-heading">URL</h3>
+        <a href="https://spice-portfolio.netlify.com/">https://spice-portfolio.netlify.com</a>
+        <h3 class="works-overlay-detail-heading">説明</h3>
+        <p class="works-overlay-detail-sentences">今表示しているサイトです。動的なものはvue.jsで制御しています。</p>
+        <h3 class="works-overlay-detail-heading">使用言語</h3>
+        <p class="works-overlay-detail-sentences">HTML,CSS,javascript</p>
+        <h3 class="works-overlay-detail-heading">ライブラリなど</h3>
+        <p class="works-overlay-detail-sentences">Vue.js, Nuxt.js, milligram(CSS)</p>
+        <button @click="closeWorksOverlay">close</button>
       </div>
     </div>
     <div class="profile-section">
@@ -85,16 +99,29 @@
 </template>
 
 <script>
-import AppLogo from "~/components/AppLogo.vue";
-
 export default {
-  components: {
-    AppLogo
+  data: function() {
+    return {
+      isShowWorksOverlay: false
+    };
+  },
+  methods: {
+    openWorksOverlay: function(event) {
+      this.isShowWorksOverlay = true;
+    },
+    closeWorksOverlay: function(event) {
+      this.isShowWorksOverlay = false;
+    }
   }
 };
 </script>
 
 <style>
+@media (max-width: 480px) {
+  body {
+    font-size: 20px;
+  }
+}
 .container {
   padding: 0;
   display: flex;
@@ -284,5 +311,40 @@ export default {
   background-size: cover;
   background-position: center;
   filter: grayscale(20%);
+}
+
+.works-overlay {
+  z-index: 300;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #000000d0;
+  overflow-y: scroll;
+}
+
+.works-overlay-detail-title {
+  margin-top: 20px;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+
+.works-overlay-detail-heading {
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.works-overlay-detail-sentences {
+  color: #ffffff;
+}
+
+@media (max-width: 480px) {
+  .works-overlay-detail-heading {
+    font-size: 36px;
+  }
 }
 </style>
