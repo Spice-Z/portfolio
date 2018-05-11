@@ -67,23 +67,24 @@
     <div class="profile-section">
       <h2 id="works">作成物</h2>
       <div class="works-box">
-        <div @click="openWorksOverlay" class="works-detail work-detail-portfolio"></div>
-        <div @click="openWorksOverlay" class="works-detail work-detail-dockhack"></div>
-        <div @click="openWorksOverlay" class="works-detail work-detail-cancamp"></div>
-        <div @click="openWorksOverlay" class="works-detail">Admin Menu</div>
+        <div @click="openWorksOverlay(works.portfolio)" class="works-detail work-detail-portfolio"></div>
+        <div @click="openWorksOverlay(works.dockhack)" class="works-detail work-detail-dockhack"></div>
+        <div @click="openWorksOverlay(works.cancamp)" class="works-detail work-detail-cancamp"></div>
+        <div @click="openWorksOverlay(works.adminMenu)" class="works-detail">Admin Menu</div>
       </div>
     </div>
     <div v-if="isShowWorksOverlay" class="works-overlay">
       <div class="works-overlay-detail">
-        <h2 class="works-overlay-detail-title">portfolio</h2>
+        <h2 class="works-overlay-detail-title">{{selectedWork.name}}</h2>
         <h3 class="works-overlay-detail-heading">URL</h3>
-        <a href="https://spice-portfolio.netlify.com/">https://spice-portfolio.netlify.com</a>
+        <a v-if="selectedWork.isUrl" href="https://spice-portfolio.netlify.com/">{{selectedWork.url}}</a>
+        <p v-if="!selectedWork.isUrl">{{selectedWork.url}}</p>
         <h3 class="works-overlay-detail-heading">説明</h3>
-        <p class="works-overlay-detail-sentences">今表示しているサイトです。動的なものはvue.jsで制御しています。</p>
+        <p class="works-overlay-detail-sentences">{{selectedWork.experiment}}</p>
         <h3 class="works-overlay-detail-heading">使用言語</h3>
-        <p class="works-overlay-detail-sentences">HTML,CSS,javascript</p>
+        <p class="works-overlay-detail-sentences">{{selectedWork.language}}</p>
         <h3 class="works-overlay-detail-heading">ライブラリなど</h3>
-        <p class="works-overlay-detail-sentences">Vue.js, Nuxt.js, milligram(CSS)</p>
+        <p class="works-overlay-detail-sentences">{{selectedWork.library}}</p>
         <button @click="closeWorksOverlay">close</button>
       </div>
     </div>
@@ -102,14 +103,62 @@
 export default {
   data: function() {
     return {
-      isShowWorksOverlay: false
+      isShowWorksOverlay: false,
+      selectedWork: {
+        name: "portfolio",
+        isUrl: true,
+        url: "https://spice-portfolio.netlify.com/",
+        experiment:
+          "今表示しているサイトです。動的なものはvue.jsで制御しています。",
+        language: "HTML,CSS,javascript",
+        library: "Vue.js, Nuxt.js, milligram(CSS)"
+      },
+      works: {
+        portfolio: {
+          name: "portfolio",
+          isUrl: true,
+          url: "https://spice-portfolio.netlify.com/",
+          experiment:
+            "今表示しているサイトです。動的なものはvue.jsで制御しています。デザインから実装まで一人で行いました。",
+          language: "HTML,CSS,javascript",
+          library: "Vue.js, Nuxt.js, milligram(CSS)"
+        },
+        dockhack: {
+          name: "dockhack",
+          isUrl: false,
+          url: "開発中のため現在非公開です",
+          experiment:
+            "過去の自分のつぶやきを、ランダムに、SNS風に表示するSPAです。ふとしたアイデアを、忘れた頃に思い出したかったので作りました。PWAにも対応中です。デザインから実装まで一人で行いました。",
+          language: "HTML,CSS,javascript",
+          library: "Vue.js, Nuxt.js, heroku"
+        },
+        cancamp: {
+          name: "cancamp",
+          isUrl: true,
+          url: "https://cancamp.jp/",
+          experiment:
+            "アルバイトで作ったECサイトです。WordPressのプラグインを自作したり、DBを拡張して作りました。画面のアニメーションと、サーバーサイドの実装を担当しました。",
+          language: "HTML,CSS,javascript,PHP",
+          library: "WordPress"
+        },
+        adminMenu: {
+          name: "ECサイトの管理画面",
+          isUrl: false,
+          url: "非公開です",
+          experiment:
+            "アルバイトで作成しました。ブラウザ上で簡単にDBを操作できるようにしたり、自動でデータを整形するツールを作りました。",
+          language: "HTML,CSS,javascript,PHP,node.js",
+          library: "様々"
+        }
+      }
     };
   },
   methods: {
-    openWorksOverlay: function(event) {
+    openWorksOverlay: function(showWork) {
+      this.selectedWork = showWork;
       this.isShowWorksOverlay = true;
     },
-    closeWorksOverlay: function(event) {
+    closeWorksOverlay: function() {
       this.isShowWorksOverlay = false;
     }
   }
