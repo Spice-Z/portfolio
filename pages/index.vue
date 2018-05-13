@@ -6,7 +6,7 @@
           Spice's portfolio
         </h1>
         <h2 class="subtitle">
-          Thank you for coming !
+          FrontEnd & PHP Engineer
         </h2>
       </div>
       <ul class="home-list">
@@ -110,7 +110,7 @@ export default {
         url: "https://spice-portfolio.netlify.com/",
         experiment:
           "今表示しているサイトです。動的なものはvue.jsで制御しています。",
-        language: "HTML,CSS,javascript",
+        language: "HTML, CSS, javascript",
         library: "Vue.js, Nuxt.js, milligram(CSS)"
       },
       works: {
@@ -120,7 +120,7 @@ export default {
           url: "https://spice-portfolio.netlify.com/",
           experiment:
             "今表示しているサイトです。動的なものはvue.jsで制御しています。デザインから実装まで一人で行いました。",
-          language: "HTML,CSS,javascript",
+          language: "HTML, CSS, javascript",
           library: "Vue.js, Nuxt.js, milligram(CSS)"
         },
         dockhack: {
@@ -129,7 +129,7 @@ export default {
           url: "開発中のため現在非公開です",
           experiment:
             "過去の自分のつぶやきを、ランダムに、SNS風に表示するSPAです。ふとしたアイデアを、忘れた頃に思い出したかったので作りました。PWAにも対応中です。デザインから実装まで一人で行いました。",
-          language: "HTML,CSS,javascript",
+          language: "HTML, CSS, javascript",
           library: "Vue.js, Nuxt.js, heroku"
         },
         cancamp: {
@@ -138,7 +138,7 @@ export default {
           url: "https://cancamp.jp/",
           experiment:
             "アルバイトで作ったECサイトです。WordPressのプラグインを自作したり、DBを拡張して作りました。画面のアニメーションと、サーバーサイドの実装を担当しました。",
-          language: "HTML,CSS,javascript,PHP",
+          language: "HTML, CSS, javascript, PHP",
           library: "WordPress"
         },
         adminMenu: {
@@ -147,7 +147,7 @@ export default {
           url: "非公開です",
           experiment:
             "アルバイトで作成しました。ブラウザ上で簡単にDBを操作できるようにしたり、自動でデータを整形するツールを作りました。",
-          language: "HTML,CSS,javascript,PHP,node.js",
+          language: "HTML, CSS, javascript, PHP, node.js",
           library: "様々"
         }
       }
