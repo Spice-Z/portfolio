@@ -78,7 +78,7 @@
       <div class="works-overlay-detail">
         <h2 class="works-overlay-detail-title">{{selectedWork.name}}</h2>
         <h3 class="works-overlay-detail-heading">URL</h3>
-        <a v-if="selectedWork.isUrl" href="https://spice-portfolio.netlify.com/">{{selectedWork.url}}</a>
+        <a v-if="selectedWork.isUrl" href="{{selectedWork.url}}">{{selectedWork.url}}</a>
         <p v-if="!selectedWork.isUrl">{{selectedWork.url}}</p>
         <h3 class="works-overlay-detail-heading">説明</h3>
         <p class="works-overlay-detail-sentences">{{selectedWork.experiment}}</p>
