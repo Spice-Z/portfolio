@@ -70,6 +70,7 @@
         <div @click="openWorksOverlay(works.portfolio)" class="works-detail work-detail-portfolio"></div>
         <div @click="openWorksOverlay(works.dockhack)" class="works-detail work-detail-dockhack"></div>
         <div @click="openWorksOverlay(works.cancamp)" class="works-detail work-detail-cancamp"></div>
+        <div @click="openWorksOverlay(works.hourTimer)" class="works-detail work-detail-hourTimer"></div>
         <div @click="openWorksOverlay(works.adminMenu)" class="works-detail">Admin Menu</div>
       </div>
     </div>
@@ -140,6 +141,15 @@ export default {
             "アルバイトで作ったECサイトです。WordPressのプラグインを自作したり、DBを拡張して作りました。画面のアニメーションと、サーバーサイドの実装を担当しました。",
           language: "HTML, CSS, javascript, PHP",
           library: "WordPress"
+        },
+        hourTimer: {
+          name: "HourTimer",
+          isUrl: true,
+          url: "https://hourtimer.netlify.com/",
+          experiment:
+            "一時間を測るという単純なものです。一度ストップすると、アプリを閉じてもMacを閉じても、残り時間は保持される機能付き。",
+          language: "HTML, CSS, javascript",
+          library: "electron-vue"
         },
         adminMenu: {
           name: "ECサイトの管理画面",
@@ -357,6 +367,13 @@ export default {
 
 .work-detail-cancamp::before {
   background: url("../assets/cancamp.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(20%);
+}
+
+.work-detail-hourTimer::before {
+  background: url("../assets/hourTimer.png");
   background-size: cover;
   background-position: center;
   filter: grayscale(20%);
