@@ -42,7 +42,7 @@
           <tbody>
             <tr>
               <td>Yugo Ogura</td>
-              <td>21</td>
+              <td>22</td>
               <td>javascript, node.js, PHP, HTML/CSS, SQL</td>
               <td>Vue.js, Nuxt.js, Angular, express, Laravel, WordPress etc...</td>
             </tr>
