@@ -31,14 +31,14 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    extend(config, { isDev, isClient }) {
-      if (isDev && isClient) {
+    extend(config) {
+      if (process.server && process.browser) {
         config.module.rules.push({
-          enforce: "pre",
+          enforce: 'pre',
           test: /\.(js|vue)$/,
-          loader: "eslint-loader",
+          loader: 'eslint-loader',
           exclude: /(node_modules)/
-        });
+        })
       }
     }
   }
